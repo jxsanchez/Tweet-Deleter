@@ -10,11 +10,20 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
     "dotenv": "^9.0.2",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "md5": "^2.3.0",
     "mongoose": "^5.12.10",
-    "mongoose-encryption": "^2.1.0"
+    "mongoose-encryption": "^2.1.0",
+    "mongoose-findorcreate": "^3.0.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0",
+    "passport-twitter": "^1.0.4",
+    "twit": "^2.2.11"
   }
 }

@@ -1,0 +1,76 @@
+* {
+  box-sizing: border-box;
+  color: #14171a;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100vh;
+}
+
+a,
+a:active,
+a:visited,
+a:hover {
+  text-decoration: none;
+}
+
+footer {
+  background: #1da1f2;
+  bottom: 0;
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 20px 0;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+}
+
+footer a {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.btn {
+  background: #1da1f2;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.3rem;
+  padding: 15px;
+}
+
+.flex-col-abs-center {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.golden-bg {
+}
+
+.home-wrapper {
+  height: 75vh;
+}
+
+.home-icon {
+  height: 125px;
+  width: 125px;
+}
+
+.home-heading {
+  font-weight: normal;
+  font-size: 3.5rem;
+  letter-spacing: 10px;
+  margin: 15px 0;
+  text-align: center;
+}
+
+.fa-twitter {
+  color: #fff;
+  font-size: 1.7rem;
+  margin-left: 15px;
+}
