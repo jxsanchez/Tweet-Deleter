@@ -57,7 +57,7 @@ passport.use(User.createStrategy()); // Create local login strategy
 passport.use(new TwitterStrategy({ // Create Twitter strategy
     consumerKey: process.env.TWITTER_CONSUMER_KEY,
     consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-    callbackURL: "http://127.0.0.1:3000/auth/twitter/deleter"
+    callbackURL: "https://thawing-forest-99001.herokuapp.com/auth/twitter/deleter"
   },
   function(token, tokenSecret, profile, cb) {
     const imgUrl = (profile.photos[0].value).replace("_normal", "");
