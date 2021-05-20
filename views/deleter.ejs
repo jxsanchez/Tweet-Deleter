@@ -6,24 +6,30 @@
         <a class="username" href="https://twitter.com/<%= username %>">@<%= username %></a>
     </div>
 
-    <a class="btn logout-btn" href="/logout"><i class="fa fa-sign-out"></i></a>
+    <a class="btn logout-btn flex-col-abs-center" href="/logout"><i class="fa fa-sign-out"></i>Logout</a>
 </div>
 
 <div class="deleter-content-wrapper">
+    <!-- Compose Tweet -->
     <form class="tweet-form" action="/tweet" method="POST">
-        <textarea class="tweet-content" type="text" name="tweet" rows="7" placeholder="Tweet something..."></textarea>
+        <textarea class="tweet-content" type="text" name="tweet" maxlength="280" rows="5" placeholder="Tweet something..."></textarea>
         <button class="btn tweet-btn" type="submit">Tweet</button>
     </form>
 
+    <!-- Delete Likes -->
     <form id="delete-like-form" action="/delete-likes" method="POST">
-        <label for="like-del-num">Enter number or tweets to delete: </label>
-        <input id="like-del-num" type="number" name="likeDelNum" min="1" max="10">
+        <h1 class="form-title">Delete Likes</h1>
         
-        <input type="radio" id="like-del-max" name="likeDelMax" value="10">
-        <label for="like-del-max">Max</label><br>
+        <label class="form-label" for="like-del-num">How many?</label>
+        <input id="like-del-num" class="like-del-num number-input" type="number" name="likeDelNum" min="1" max="200" value="1"/>
+        
+        <input class="like-del-checkbox" type="checkbox" id="like-del-max" name="likeDelMax" value="10">
+        <label class="form-label" for="like-del-max">Max</label><br>
 
-        <button class="btn confirm-btn" type="submit"><i class="fa fa-check"></i></button>        
+        <button class="btn confirm-del-btn" type="submit">Delete <i class="fa fa-check"></i></button>        
     </form>
 </div>
+
+<script src="deleter.js"></script>
 
 <%- include("partials/footer"); -%>

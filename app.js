@@ -28,7 +28,7 @@ app.use(passport.session()); // Use passport to manage session
 
 app.set("view engine", "ejs");
 
-mongoose.connect("mongodb://localhost:27017/userDB", { useNewUrlParser : true, useUnifiedTopology: true });
+mongoose.connect("mongodb+srv://jesus-admin:" + process.env.MONGODB_PASSWORD+ "@like-deleter.moznz.mongodb.net/userDB", { useNewUrlParser : true, useUnifiedTopology: true });
 mongoose.set("useCreateIndex", true);
 
 const saltRounds = 5;
@@ -186,6 +186,6 @@ app.post("/login", (req, res) => {
     });
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log("Server started.");
 });

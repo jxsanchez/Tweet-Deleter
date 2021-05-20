@@ -25,8 +25,12 @@ button {
   outline: none;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 footer {
-  background: #1da1f2;
+  background: #f4cc31;
   bottom: 0;
   color: #f5f8fa;
   font-size: 1.1rem;
@@ -68,14 +72,23 @@ footer a {
 .home-icon {
   height: 125px;
   width: 125px;
+  margin-bottom: 20px;
 }
 
 .home-heading {
+  color: #1da1f2;
   font-weight: normal;
   font-size: 3.5rem;
   letter-spacing: 10px;
-  margin: 15px 0;
+  text-transform: lowercase;
   text-align: center;
+}
+
+.home-subheading {
+  color: #657786;
+  margin: 10px 0 20px 0;
+  font-size: 1.5rem;
+  text-transform: lowercase;
 }
 
 .fa-twitter {
@@ -90,6 +103,7 @@ footer a {
   justify-content: space-between;
   align-items: center;
   padding: 30px 30px 20px;
+  position: relative;
 }
 
 .user-info-wrapper {
@@ -100,24 +114,25 @@ footer a {
 
 .profile-img {
   border-radius: 50%;
-  height: 75px;
-  width: 75px;
+  height: 60px;
+  width: 60px;
 }
 
 .username {
   color: #f5f8fa;
-  font-size: 1.5rem;
-  margin-top: 5px;
+  font-size: 1.3rem;
+  margin-top: 10px;
 }
 
 .logout-btn {
-  background: #f4a231;
-  border-radius: 50%;
+  background: none;
+  position: absolute;
+  bottom: 5px;
+  right: 20px;
 }
 
 .logout-btn:hover {
-  background: #a66000;
-  color: #f5f8fa;
+  text-shadow: 0 0 5px #f5f8fa;
 }
 
 .fa-sign-out {
@@ -148,22 +163,66 @@ footer a {
   border: 2px solid #aab8c2;
   border-radius: 5px;
   color: #657786;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin-bottom: 15px;
-  padding: 10px 15px;
+  padding: 15px 15px 55px 15px;
   resize: none;
   outline: none;
+}
+
+.char-count-wrapper {
+  bottom: 30px;
+  font-size: 1.2rem;
+  left: 30px;
+  position: absolute;
 }
 
 .tweet-btn {
   bottom: 30px;
   font-size: 1rem;
   margin: 0 auto;
+  padding: 10px;
   position: absolute;
-  right: 20px;
+  right: 15px;
   width: fit-content;
 }
 
 #delete-like-form {
   margin-top: 25px;
+  width: 85%;
+}
+
+.form-title {
+  color: #1da1f2;
+  margin-bottom: 10px;
+}
+
+.form-label {
+  color: #657786;
+  font-size: 1.3rem;
+}
+
+.number-input {
+  color: #657786;
+  font-size: 1.3rem;
+  padding: 3px;
+  width: 60px;
+  outline: none;
+  margin: 0 10px;
+}
+
+.like-del-checkbox {
+  transform: scale(1.5);
+  margin-right: 5px;
+}
+
+.confirm-del-btn {
+  background: #f52e14;
+  color: #f5f8fa;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.fa-check {
+  color: #f5f8fa;
 }
