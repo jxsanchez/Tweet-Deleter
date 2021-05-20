@@ -103,50 +103,44 @@ footer a {
   margin-left: 15px;
 }
 
+/************************* deleter.ejs *************************/
+/* header */
 .deleter-header {
+  align-items: center;
   background: #1da1f2;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 30px 20px;
-  position: relative;
+  font-size: 1rem;
+  padding: 15px 50px;
 }
 
 .user-info-wrapper {
+  align-items: center;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
 }
 
 .profile-img {
   border-radius: 50%;
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
 }
 
 .username {
   color: #f5f8fa;
-  font-size: 1.3rem;
-  margin-top: 10px;
+  margin-left: 10px;
 }
 
-.logout-btn {
+.logout-link {
   background: none;
-  position: absolute;
-  bottom: 5px;
-  right: 20px;
-}
-
-.logout-btn:hover {
-  text-shadow: 0 0 5px #f5f8fa;
+  color: #f5f8fa;
+  margin-left: 20px;
 }
 
 .fa-sign-out {
   color: #f5f8fa;
-  font-size: 2rem;
-  margin: 2px;
+  font-size: 1.2rem;
 }
 
+/* content */
 .deleter-content-wrapper {
   align-items: center;
   background: #f5f8fa;
@@ -241,6 +235,13 @@ footer a {
     height: 115px;
     width: 115px;
   }
+
+  /************************* deleter.ejs *************************/
+  /* header */
+  .deleter-header {
+    justify-content: space-between;
+    padding: 15px 30px;
+  }
 }
 
 /* Landscape Orientation */
@@ -271,8 +272,14 @@ footer a {
   }
 
   .fa-twitter {
-    color: #f5f8fa;
     font-size: 1.2rem;
     margin-left: 10px;
+  }
+
+  /************************* deleter.ejs *************************/
+  /* header */
+  .deleter-header {
+    justify-content: flex-start;
+    padding: 15px 30px;
   }
 }
