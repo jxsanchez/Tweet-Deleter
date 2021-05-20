@@ -67,8 +67,8 @@ passport.use(User.createStrategy());
 passport.use(new TwitterStrategy({ 
     consumerKey: process.env.TWITTER_CONSUMER_KEY,
     consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-    /* callbackURL: "https://thawing-forest-99001.herokuapp.com/auth/twitter/deleter" */
-    callbackURL: "http://127.0.0.1:3000/auth/twitter/deleter"
+    callbackURL: "https://thawing-forest-99001.herokuapp.com/auth/twitter/deleter"
+    // callbackURL: "http://127.0.0.1:3000/auth/twitter/deleter"
   },
   function(token, tokenSecret, profile, cb) {
     // Get full-sized profile photo
