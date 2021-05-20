@@ -13,6 +13,9 @@
     <!-- Compose Tweet -->
     <form class="tweet-form" action="/tweet" method="POST">
         <textarea class="tweet-content" type="text" name="tweet" maxlength="280" rows="5" placeholder="Tweet something..."></textarea>
+
+        <p class="char-count"></p>
+        
         <button class="btn tweet-btn" type="submit">Tweet</button>
     </form>
 
@@ -24,7 +27,7 @@
         <input id="like-del-num" class="like-del-num number-input" type="number" name="likeDelNum" min="1" max="200" value="1"/>
         
         <input class="like-del-checkbox" type="checkbox" id="like-del-max" name="likeDelMax" value="10">
-        <label class="form-label" for="like-del-max">Max</label><br>
+        <label class="form-label" for="like-del-max">Max (200)</label><br>
 
         <button class="btn confirm-del-btn" type="submit">Delete <i class="fa fa-check"></i></button>        
     </form>
