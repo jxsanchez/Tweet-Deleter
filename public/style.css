@@ -33,7 +33,7 @@ footer {
   background: #f4cc31;
   bottom: 0;
   color: #f5f8fa;
-  font-size: 1.1rem;
+  font-size: 1rem;
   padding: 20px 0;
   position: fixed;
   text-align: center;
@@ -42,7 +42,6 @@ footer {
 
 footer a {
   color: #f5f8fa;
-  font-size: 1.2rem;
   font-weight: bold;
 }
 
@@ -62,33 +61,40 @@ footer a {
   justify-content: center;
 }
 
-.golden-bg {
-}
-
+/************************* home.ejs *************************/
 .home-wrapper {
   height: 75vh;
 }
 
 .home-icon {
   height: 125px;
-  width: 125px;
   margin-bottom: 20px;
+  width: 125px;
 }
 
 .home-heading {
   color: #1da1f2;
   font-weight: normal;
-  font-size: 3.5rem;
+  font-size: 4rem;
   letter-spacing: 10px;
-  text-transform: lowercase;
   text-align: center;
+  text-transform: lowercase;
 }
 
 .home-subheading {
   color: #657786;
-  margin: 10px 0 20px 0;
   font-size: 1.5rem;
+  margin: 10px 0 20px 0;
   text-transform: lowercase;
+}
+
+.login-btn {
+  background: #1da1f2;
+  border-radius: 5px;
+  color: #f5f8fa;
+  font-size: 1.3rem;
+  outline: none;
+  padding: 15px;
 }
 
 .fa-twitter {
@@ -225,4 +231,48 @@ footer a {
 
 .fa-check {
   color: #f5f8fa;
+}
+
+/************************* MOBILE MEDIA QUERIES *************************/
+/* Portrait Orientation */
+@media only screen and (min-width: 375px) and (max-width: 926px) {
+  /************************* home.ejs *************************/
+  .home-icon {
+    height: 115px;
+    width: 115px;
+  }
+}
+
+/* Landscape Orientation */
+@media only screen and (min-width: 375px) and (max-width: 926px) and (orientation: landscape) {
+  /************************* home.ejs *************************/
+  .home-wrapper {
+    height: 85vh;
+  }
+
+  .home-icon {
+    height: 90px;
+    margin-bottom: 10px;
+    width: 90px;
+  }
+
+  .home-heading {
+    font-size: 2.7rem;
+  }
+
+  .home-subheading {
+    margin: 5px 0 10px 0;
+    font-size: 1.2rem;
+  }
+
+  .login-btn {
+    font-size: 1.1rem;
+    padding: 10px;
+  }
+
+  .fa-twitter {
+    color: #f5f8fa;
+    font-size: 1.2rem;
+    margin-left: 10px;
+  }
 }
