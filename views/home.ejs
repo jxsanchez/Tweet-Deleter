@@ -1,29 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="img/icon.png" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <title>Tweet Deleter</title>
-</head>
-<body>
-    <div class="golden-bg"></div>
-    <div class="home-wrapper flex-col-abs-center">
-        <div class="home-content flex-col-abs-center">
-            <img class="home-icon" src="img/icon.png" alt="Tweet Deleter Icon">
-            <h1 class="home-heading">Tweet Deleter</h1>
+<%- include("partials/header"); -%>
 
-            <a class="btn" href="/auth/twitter">Login with Twitter<i class="fa fa-twitter"></i></a>
-        </div>
+<div class="golden-bg"></div>
+<div class="home-wrapper flex-col-abs-center">
+    <div class="home-content flex-col-abs-center">
+        <img class="home-icon" src="img/icon.png" alt="Tweet Deleter Icon">
+        <h1 class="home-heading">Like Deleter</h1>
+
+        <a class="btn" href="/auth/twitter">Login with Twitter<i class="fa fa-twitter"></i></a>
     </div>
+</div>
 
-    <footer>
-        Made by <a href="https://jxsdev.com/" target="blank">Jesus Sanchez</a>
-    </footer>
-</body>
-</html>
+<%- include("partials/footer"); -%>

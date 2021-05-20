@@ -8,7 +8,8 @@ const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 const session = require("express-session");
 const TwitterStrategy = require("passport-twitter").Strategy;
-const Twit = require("twit");
+const twit = require("./twit");
+
 
 const app = express();
 
@@ -36,7 +37,7 @@ const saltRounds = 5;
 const userSchema = new mongoose.Schema({
     twitterId: String,
     username: String,
-    password: String,
+    profileImgUrl: String,
     token: String,
     tokenSecret: String
 });
@@ -59,7 +60,9 @@ passport.use(new TwitterStrategy({ // Create Twitter strategy
     callbackURL: "http://127.0.0.1:3000/auth/twitter/deleter"
   },
   function(token, tokenSecret, profile, cb) {
-    User.findOrCreate({ username: profile.username, twitterId: profile.id, token: token, tokenSecret: tokenSecret}, function (err, user) {
+    const imgUrl = (profile.photos[0].value).replace("_normal", "");
+
+    User.findOrCreate({ twitterId: profile.id, username: profile.username, profileImgUrl: imgUrl, token: token, tokenSecret: tokenSecret}, function (err, user) {
       return cb(err, user);
     });
   }
@@ -100,9 +103,11 @@ app.get('/auth/twitter/deleter',
 
 app.get("/deleter", (req, res) => {
     if(req.isAuthenticated()) {
-        res.render("deleter", {username: req.user.username});
+        const { username, profileImgUrl } = req.user ;
+
+        res.render("deleter", { username: username, profileImgUrl: profileImgUrl });
     } else {
-        res.redirect("/login");
+        res.redirect("/");
     }
 });
 
@@ -116,18 +121,35 @@ app.get("/logout", (req, res) => {
  * POST Requests *
  *****************/
 app.post("/tweet", (req, res) => {
-    const T = new Twit({
-        consumer_key:         process.env.TWITTER_CONSUMER_KEY,
-        consumer_secret:      process.env.TWITTER_CONSUMER_SECRET,
-        access_token:         req.user.token,
-        access_token_secret:  req.user.tokenSecret,
-      });
-
-      console.log(req.body.tweet);
+    const T = twit.twitConfig(req);
       
-      T.post('statuses/update', { status: req.body.tweet }, function(err, data, response) {
-        console.log(data);
+      T.post("statuses/update", { status: req.body.tweet }, function(err, data, response) {
+        if(!err) {
+            res.redirect("/deleter");   
+        }
       });
+});
+
+app.post("/delete-likes", (req, res) => {
+    // Configure twit object
+    const T = twit.twitConfig(req);
+
+    // Get specified number of likes
+    T.get("favorites/list", { user_id: req.user.twitterId, count: req.body.likeDelNum }, (err, data, response) => {
+        // Delete each like
+        data.forEach(like => {
+            T.post("favorites/destroy", { id: like.id_str }, (err, data, response) => {
+                if(!err) {
+                    console.log(data);
+                } else {
+                    console.log(response.statusCode);
+                    console.log("could not delete like");
+                }
+            });
+        });
+
+        res.redirect("/deleter");
+    });
 });
 
 // Handles POST request from /register form

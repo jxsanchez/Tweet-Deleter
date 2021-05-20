@@ -1,19 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <%= username %>
+<%- include("partials/header"); -%>
 
-    <a href="/logout">Logout</a>
+<div class="deleter-header">
+    <div class="user-info-wrapper">
+        <img class="profile-img" src="<%= profileImgUrl %>" alt="">
+        <a class="username" href="https://twitter.com/<%= username %>">@<%= username %></a>
+    </div>
 
-    <form action="/tweet" method="POST">
-        <input type="text" name="tweet" placeholder="tweet sumn.">
-        <button type="submit">Tweet</button>
+    <a class="btn logout-btn" href="/logout"><i class="fa fa-sign-out"></i></a>
+</div>
+
+<div class="deleter-content-wrapper">
+    <form class="tweet-form" action="/tweet" method="POST">
+        <textarea class="tweet-content" type="text" name="tweet" rows="7" placeholder="Tweet something..."></textarea>
+        <button class="btn tweet-btn" type="submit">Tweet</button>
     </form>
-</body>
-</html>
+
+    <form id="delete-like-form" action="/delete-likes" method="POST">
+        <label for="like-del-num">Enter number or tweets to delete: </label>
+        <input id="like-del-num" type="number" name="likeDelNum" min="1" max="10">
+        
+        <input type="radio" id="like-del-max" name="likeDelMax" value="10">
+        <label for="like-del-max">Max</label><br>
+
+        <button class="btn confirm-btn" type="submit"><i class="fa fa-check"></i></button>        
+    </form>
+</div>
+
+<%- include("partials/footer"); -%>
