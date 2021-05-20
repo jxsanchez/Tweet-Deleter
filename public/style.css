@@ -32,7 +32,7 @@ button:hover {
 footer {
   background: #f4cc31;
   bottom: 0;
-  color: #f5f8fa;
+  color: #14171a;
   font-size: 1rem;
   padding: 20px 0;
   position: fixed;
@@ -41,17 +41,12 @@ footer {
 }
 
 footer a {
-  color: #f5f8fa;
+  color: #14171a;
   font-weight: bold;
 }
 
-.btn {
-  background: #1da1f2;
-  border-radius: 5px;
-  color: #f5f8fa;
-  font-size: 1.3rem;
-  outline: none;
-  padding: 15px;
+footer a:hover {
+  color: #aab8c2;
 }
 
 .flex-col-abs-center {
@@ -149,62 +144,62 @@ footer a {
   flex-direction: column;
   margin: 25px auto 0;
   padding: 25px 0;
-  width: 90%;
+  width: 30%;
 }
 
+/* tweet form */
 .tweet-form {
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 85%;
+  width: 90%;
 }
 
 .tweet-content {
   border: 2px solid #aab8c2;
   border-radius: 5px;
   color: #657786;
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin-bottom: 15px;
   padding: 15px 15px 55px 15px;
   resize: none;
   outline: none;
 }
 
-.char-count-wrapper {
-  bottom: 30px;
-  font-size: 1.2rem;
-  left: 30px;
-  position: absolute;
-}
-
 .tweet-btn {
+  background: #1da1f2;
+  border-radius: 5px;
   bottom: 30px;
-  font-size: 1rem;
+  color: #f5f8fa;
+  font-size: 0.9rem;
   margin: 0 auto;
   padding: 10px;
   position: absolute;
   right: 15px;
-  width: fit-content;
 }
 
+/* delete like form */
 #delete-like-form {
-  margin-top: 25px;
-  width: 85%;
+  margin-top: 10px;
+  width: 90%;
 }
 
 .form-title {
   color: #1da1f2;
   margin-bottom: 10px;
+  text-transform: lowercase;
 }
 
 .form-label {
   color: #657786;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 
 .number-input {
+  border: 2px solid #aab8c2;
+  border-radius: 5px;
   color: #657786;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   padding: 3px;
   width: 60px;
   outline: none;
@@ -218,9 +213,10 @@ footer a {
 
 .confirm-del-btn {
   background: #f52e14;
+  border-radius: 5px;
   color: #f5f8fa;
   margin-top: 10px;
-  padding: 5px;
+  padding: 10px;
 }
 
 .fa-check {
@@ -242,10 +238,48 @@ footer a {
     justify-content: space-between;
     padding: 15px 30px;
   }
+
+  /* content */
+  .deleter-content-wrapper {
+    padding: 15px 0;
+    width: 90%;
+  }
+
+  /* tweet form */
+  .tweet-content {
+    font-size: 1.1rem;
+  }
+
+  /* delete like form */
+  #delete-like-form {
+    margin-top: 25px;
+  }
+
+  .form-title {
+    margin-bottom: 15px;
+  }
+
+  .form-label {
+    font-size: 1.2rem;
+  }
+
+  .number-input {
+    font-size: 1.2rem;
+    width: 60px;
+  }
+
+  .confirm-del-btn {
+    margin-top: 15px;
+    padding: 10px;
+  }
 }
 
 /* Landscape Orientation */
 @media only screen and (min-width: 375px) and (max-width: 926px) and (orientation: landscape) {
+  footer {
+    position: static;
+  }
+
   /************************* home.ejs *************************/
   .home-wrapper {
     height: 85vh;
@@ -280,6 +314,12 @@ footer a {
   /* header */
   .deleter-header {
     justify-content: flex-start;
-    padding: 15px 30px;
+    padding: 7px 30px;
+  }
+
+  /* content */
+  .deleter-content-wrapper {
+    margin-bottom: 25px;
+    width: 50%;
   }
 }
