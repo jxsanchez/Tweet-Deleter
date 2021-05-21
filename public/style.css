@@ -218,7 +218,7 @@ hr {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 204px;
+  width: 214px;
 }
 
 .checkbox-wrapper {
@@ -229,6 +229,7 @@ hr {
 
 .like-del-checkbox {
   zoom: 1.5; /* makes checkbox bigger without shifting it right */
+  margin-right: 7px;
 }
 
 .confirm-del-btn {
@@ -320,7 +321,7 @@ footer a:hover {
   }
 
   .stack-input {
-    width: 220px;
+    width: 230px;
   }
 
   .number-input {
