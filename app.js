@@ -110,9 +110,18 @@ app.get('/auth/twitter/deleter',
 app.get("/deleter", (req, res) => {
     // Renders the deleter page if the user is successfully authenticated
     if(req.isAuthenticated()) {
-        const { username, profileImgUrl } = req.user ;
+        // Destructure user object to get username and profile img url
+        const { username, profileImgUrl } = req.user;
 
-        res.render("deleter", { username: username, profileImgUrl: profileImgUrl });
+        // Get session variables after being redirected
+        const tweetSent = req.session.tweetSent;
+        const likesDeleted = req.session.likesDeleted;
+
+        // Reset session variables
+        req.session.tweetSent = null;
+        req.session.likesDeleted = null;
+
+        res.render("deleter", { username: username, profileImgUrl: profileImgUrl, tweetSent: tweetSent, likesDeleted: likesDeleted });
     // Redirects the user to the home page if they try to access the deleter page without logging in
     } else {
         res.redirect("/");
@@ -136,6 +145,9 @@ app.post("/tweet", (req, res) => {
     // Sends tweet with information provided from tweet form and redirects to deleter page
     T.post("statuses/update", { status: req.body.tweet }, function(err, data, response) {
         if(!err) {
+            // Set session variable to display success message
+            req.session.tweetSent = true;
+
             res.redirect("/deleter");   
         }
     });
@@ -156,6 +168,9 @@ app.post("/delete-likes", (req, res) => {
                 }
             });
         });
+
+        // Set session variable to display success message
+        req.session.likesDeleted = true;
 
         res.redirect("/deleter");
     });

@@ -42,11 +42,9 @@ tweetContent.on("input", () => {
 likeDelCheckbox.click(() => {
     // Set number input to 1 when unchecked, else set to MAX
     if(likeDelCheckbox.attr("checked")) {
-        console.log("is checked, unchecking and changing val to 1");
         likeDelCheckbox.attr("checked", false);
         likeDelInput.val(1);
     } else {
-        console.log("NOT checked, checking and changing val to 200");
         likeDelCheckbox.attr("checked", true);
         likeDelInput.val(MAX);
     }
@@ -54,13 +52,10 @@ likeDelCheckbox.click(() => {
 
 // Detect changes in number input to check and uncheck 
 likeDelInput.on("input", () => {
-    console.log("like del input value changed");
     // Uncheck checkbox if number is below MAX, else check 
     if(likeDelInput.val() < MAX) {
-        console.log("value less than max, unchecking");
         likeDelCheckbox.attr("checked", false);
     } else {
-        console.log("value IS max, checking box");
         likeDelCheckbox.attr("checked", true);
     }
 });

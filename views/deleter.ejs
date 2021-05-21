@@ -19,6 +19,10 @@
         <button class="tweet-btn" type="submit">Tweet</button>
     </form>
 
+    <% if(tweetSent) { %>
+        <p class="success-msg">Your tweet was sent!</p>
+    <% } %>
+
     <hr>
 
     <!-- Delete Likes -->
@@ -39,6 +43,10 @@
             <button class="confirm-del-btn" type="submit"><i class="fa fa-trash"></i></button>       
         </div> 
     </form>
+
+    <% if(likesDeleted) { %>
+        <p class="success-msg">Your likes were deleted!</p>
+    <% } %>
 </div>
 
 <script src="deleter.js"></script>

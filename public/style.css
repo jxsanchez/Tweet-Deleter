@@ -53,6 +53,10 @@ hr {
   display: flex;
 }
 
+.success-msg {
+  color: #35a824;
+}
+
 /************************* home.ejs *************************/
 .home-wrapper {
   height: 75vh;
@@ -190,6 +194,7 @@ hr {
 /* delete like form */
 #delete-like-form {
   width: 90%;
+  margin-bottom: 15px;
 }
 
 .form-title {
@@ -243,6 +248,10 @@ hr {
   padding: 10px;
 }
 
+.confirm-del-btn:hover {
+  background: #c42510;
+}
+
 .fa-trash {
   color: #f5f8fa;
   font-size: 1.3rem;
@@ -280,6 +289,10 @@ footer a:hover {
     /* justify-content: space-between; */
   }
 
+  .success-msg {
+    margin-left: 20px;
+  }
+
   /************************* home.ejs *************************/
   .home-icon {
     height: 115px;
@@ -309,7 +322,7 @@ footer a:hover {
 
   /* delete like form */
   #delete-like-form {
-    margin: 0 auto;
+    margin: 0 auto 15px;
   }
 
   .form-title {
@@ -383,7 +396,7 @@ footer a:hover {
   }
 
   .deleter-content-wrapper {
-    padding: 20px 0 380px;
+    padding: 20px 0 420px;
     width: 50%;
   }
 }
