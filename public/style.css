@@ -7,7 +7,7 @@
 }
 
 html {
-  background: #e1e8ed;
+  background: #f5f8fa;
   height: 100vh;
 }
 
@@ -29,31 +29,28 @@ button:hover {
   cursor: pointer;
 }
 
-footer {
-  background: #f4cc31;
-  bottom: 0;
-  color: #14171a;
-  font-size: 1rem;
-  padding: 20px 0;
-  position: fixed;
-  text-align: center;
+hr {
   width: 100%;
+  border: none;
+  border-top: 3px solid #aab8c2;
+  margin: 20px auto;
 }
 
-footer a {
-  color: #14171a;
-  font-weight: bold;
-}
-
-footer a:hover {
-  color: #aab8c2;
-}
-
+/************************* general *************************/
 .flex-col-abs-center {
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex-row {
+  display: flex;
 }
 
 /************************* home.ejs *************************/
@@ -135,24 +132,21 @@ footer a:hover {
   font-size: 1.2rem;
 }
 
-/* content */
+/* tweet form */
 .deleter-content-wrapper {
-  align-items: center;
-  background: #f5f8fa;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  margin: 25px auto 0;
-  padding: 25px 0;
-  width: 30%;
+  background: #e1e8ed;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 25px 30px;
+  width: fit-content;
 }
 
-/* tweet form */
 .tweet-form {
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
   position: relative;
-  width: 90%;
+  width: 450px;
 }
 
 .tweet-content {
@@ -187,7 +181,6 @@ footer a:hover {
 
 /* delete like form */
 #delete-like-form {
-  margin-top: 10px;
   width: 90%;
 }
 
@@ -207,32 +200,77 @@ footer a:hover {
   border-radius: 5px;
   color: #657786;
   font-size: 1.1rem;
+  margin-left: 10px;
   padding: 3px;
   width: 60px;
   outline: none;
-  margin: 0 10px;
+}
+
+.stack-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 204px;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
 }
 
 .like-del-checkbox {
-  transform: scale(1.5);
-  margin-right: 5px;
+  zoom: 1.5; /* makes checkbox bigger without shifting it right */
 }
 
 .confirm-del-btn {
   background: #f52e14;
-  border-radius: 5px;
+  border-radius: 50%;
   color: #f5f8fa;
-  margin-top: 10px;
+  display: inline-block;
+  height: fit-content;
+  margin-left: 25px;
+  margin-top: -5px;
   padding: 10px;
 }
 
-.fa-check {
+.fa-trash {
   color: #f5f8fa;
+  font-size: 1.3rem;
+}
+
+/************************* footer.ejs *************************/
+footer {
+  background: #f4cc31;
+  bottom: 0;
+  color: #14171a;
+  font-size: 1rem;
+  padding: 20px 0;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+}
+
+footer a {
+  color: #14171a;
+  font-weight: bold;
+}
+
+footer a:hover {
+  color: #aab8c2;
 }
 
 /************************* MOBILE MEDIA QUERIES *************************/
 /* Portrait Orientation */
 @media only screen and (min-width: 375px) and (max-width: 926px) {
+  hr {
+    width: 90%;
+  }
+
+  .flex-row {
+    /* justify-content: space-between; */
+  }
+
   /************************* home.ejs *************************/
   .home-icon {
     height: 115px;
@@ -246,20 +284,23 @@ footer a:hover {
     padding: 15px 30px;
   }
 
-  /* content */
+  /* tweet form */
   .deleter-content-wrapper {
-    padding: 15px 0;
+    padding: 20px 0px;
+    width: 100%;
+  }
+
+  .tweet-form {
     width: 90%;
   }
 
-  /* tweet form */
   .tweet-content {
     font-size: 1.1rem;
   }
 
   /* delete like form */
   #delete-like-form {
-    margin-top: 25px;
+    margin: 0 auto;
   }
 
   .form-title {
@@ -270,14 +311,22 @@ footer a:hover {
     font-size: 1.2rem;
   }
 
+  .stack-input {
+    width: 220px;
+  }
+
   .number-input {
     font-size: 1.2rem;
     width: 60px;
   }
 
   .confirm-del-btn {
-    margin-top: 15px;
-    padding: 10px;
+    padding: 10px 12px;
+    margin-left: 20px;
+  }
+
+  .fa-trash {
+    font-size: 1.5rem;
   }
 }
 
@@ -324,9 +373,8 @@ footer a:hover {
     padding: 7px 30px;
   }
 
-  /* content */
   .deleter-content-wrapper {
-    margin-bottom: 25px;
+    padding: 20px 0 380px;
     width: 50%;
   }
 }
