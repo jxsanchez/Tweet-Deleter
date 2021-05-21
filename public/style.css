@@ -179,6 +179,14 @@ hr {
   right: 15px;
 }
 
+.disabled {
+  background: #d2ecfc;
+}
+
+.disabled:hover {
+  cursor: default;
+}
+
 /* delete like form */
 #delete-like-form {
   width: 90%;
