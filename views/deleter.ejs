@@ -1,12 +1,19 @@
 <%- include("partials/header"); -%>
 
 <div class="deleter-header">
-    <div class="user-info-wrapper">
-        <a href="https://twitter.com/<%= username %>"><img class="profile-img" src="<%= profileImgUrl %>" alt=""></a>
-        <a class="username" href="https://twitter.com/<%= username %>">@<%= username %></a>
+    <a href="/deleter" class="logo-wrapper hide-mobile">
+        <img class="profile-img" src="img/icon.png" alt="">
+        <p class="logo-title">tweet deleter</p>
+    </a>
+    
+    <div class="left-wrapper">
+        <div class="user-info-wrapper">
+            <a href="https://twitter.com/<%= username %>"><img class="profile-img" src="<%= profileImgUrl %>" alt=""></a>
+            <a class="username" href="https://twitter.com/<%= username %>">@<%= username %></a>
+        </div>
+    
+        <a class="logout-link" href="/logout">logout <i class="fa fa-sign-out"></i></a>
     </div>
-
-    <a class="logout-link" href="/logout">logout <i class="fa fa-sign-out"></i></a>
 </div>
 
 <div class="deleter-content-wrapper">

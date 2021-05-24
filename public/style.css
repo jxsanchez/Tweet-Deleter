@@ -53,6 +53,11 @@ hr {
   display: flex;
 }
 
+/* hide item on mobile */
+.hide-mobile {
+  display: flex;
+}
+
 .success-msg {
   color: #35a824;
   font-size: 1.1rem;
@@ -106,9 +111,24 @@ hr {
   align-items: center;
   background: #1da1f2;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   font-size: 1rem;
   padding: 15px 50px;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.logo-title {
+  color: #f5f8fa;
+  margin-left: 15px;
+}
+
+.left-wrapper {
+  display: flex;
+  align-items: center;
 }
 
 .user-info-wrapper {
@@ -291,6 +311,10 @@ footer a:hover {
     /* justify-content: space-between; */
   }
 
+  .hide-mobile {
+    display: none;
+  }
+
   .success-msg {
     margin-left: 20px;
   }
@@ -304,8 +328,13 @@ footer a:hover {
   /************************* deleter.ejs *************************/
   /* header */
   .deleter-header {
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: 15px 30px;
+  }
+
+  .left-wrapper {
+    width: 100%;
+    justify-content: space-between;
   }
 
   /* tweet form */
@@ -360,6 +389,10 @@ footer a:hover {
     position: static;
   }
 
+  .hide-mobile {
+    display: flex;
+  }
+
   /************************* home.ejs *************************/
   .home-wrapper {
     height: 85vh;
@@ -393,8 +426,12 @@ footer a:hover {
   /************************* deleter.ejs *************************/
   /* header */
   .deleter-header {
-    justify-content: flex-end;
+    justify-content: space-between;
     padding: 7px 30px;
+  }
+
+  .left-wrapper {
+    width: fit-content;
   }
 
   .deleter-content-wrapper {
