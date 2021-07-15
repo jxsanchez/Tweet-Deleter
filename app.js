@@ -115,13 +115,20 @@ app.get("/deleter", (req, res) => {
 
         // Get session variables after being redirected
         const tweetSent = req.session.tweetSent;
+        const tweetsDeleted = req.session.tweetsDeleted;
         const likesDeleted = req.session.likesDeleted;
 
         // Reset session variables
         req.session.tweetSent = null;
+        req.session.tweetsDeleted = null;
         req.session.likesDeleted = null;
 
-        res.render("deleter", { username: username, profileImgUrl: profileImgUrl, tweetSent: tweetSent, likesDeleted: likesDeleted });
+        res.render("deleter", { 
+            username: username, 
+            profileImgUrl: profileImgUrl, 
+            tweetSent: tweetSent, 
+            tweetsDeleted: tweetsDeleted,
+            likesDeleted: likesDeleted });
     // Redirects the user to the home page if they try to access the deleter page without logging in
     } else {
         res.redirect("/");
@@ -174,6 +181,27 @@ app.post("/delete-likes", (req, res) => {
 
         res.redirect("/deleter");
     });
+});
+
+app.post("/delete-tweets", (req, res) => {
+    const T = twit.twitConfig(req);
+
+    // Get specified number of user's tweets
+    T.get("statuses/user_timeline",  {user_id: req.user.twitterId, count: req.body.tweetDelNum }, (err, data, response) => {
+        // Use id string to delete each tweet
+        data.forEach(tweet => {
+            T.post("statuses/destroy/" + tweet.id_str, (err, data, response) => {
+                if(err) {
+                    res.redirect("/deleter");
+                }
+            });
+        });
+    });
+
+    // Set session variable to display success message
+    req.session.tweetsDeleted = true;
+
+    res.redirect("/deleter");
 });
 
 // Get port from process (running on web server)
