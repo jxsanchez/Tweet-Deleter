@@ -1,0 +1,51 @@
+<h1 class="form-title recent-tweet-title">Recent Tweets</h1>
+
+<% if(tweetsDeleted) { %>
+    <p class="success-msg">Your tweet was deleted!</p>
+<% } %> 
+
+<% for(let i = 0; i < tweets.length; i++) { %>
+    <form class="delete-tweet-form" action="/delete-tweet" method="POST">
+        <!-- <a 
+            class="username"
+            href="https://twitter.com/<%= tweets[i]["user"].screen_name %>" 
+            target="blank"
+        >
+            @<%= tweets[i]["user"].screen_name %>
+        </a> -->
+            
+        <p>
+            <i class="<%= tweets[i].text.includes("RT") ?  "retweet-icon fa fa-retweet" : ''%>"></i>
+            <%= tweets[i].text %></p>
+        </p>
+        <input type="text" name="tweetId" value="<%= tweets[i].id_str %>" hidden />
+
+        <button 
+            class="<%= tweets[i].text.includes("RT") ? "del-rt-btn" : "confirm-del-btn" %>"
+            type="submit"
+            name="delete-tweet">
+            <%= tweets[i].text.includes("RT") ? "Remove RT" : "Delete" %>
+        </button>
+    </form>
+
+    <!-- <hr class="tweet-divider"> -->
+<% } %>
+
+<!-- Delete Tweets -->
+<!-- <form id="delete-like-form" action="/delete-tweets" method="POST">
+    <h1 class="form-title">Delete Tweets</h1>
+    
+    <div class="flex-row">
+        <div class="stack-input">
+            <div><label class="form-label" for="like-del-num">How many?</label>
+                <input id="tweet-del-num" class="tweet-del-num number-input" type="number" name="tweetDelNum" min="1" max="200" value="1"/></div>
+
+            <div class="checkbox-wrapper flex-align-center">
+                <input class="like-del-checkbox" type="checkbox" id="like-del-max" name="likeDelMax" value="10">
+            <label class="checkbox-label form-label" for="like-del-max">Max (200)</label><br>
+            </div>
+        </div>
+
+        <button class="confirm-del-btn" type="submit"><i class="fa fa-trash"></i></button>       
+    </div> 
+</form> -->

@@ -67,8 +67,8 @@ passport.use(User.createStrategy());
 passport.use(new TwitterStrategy({ 
     consumerKey: process.env.TWITTER_CONSUMER_KEY,
     consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-    callbackURL: "https://thawing-forest-99001.herokuapp.com/auth/twitter/deleter"
-    // callbackURL: "http://127.0.0.1:3000/auth/twitter/deleter"
+    // callbackURL: "https://thawing-forest-99001.herokuapp.com/auth/twitter/deleter"
+    callbackURL: "http://127.0.0.1:3000/auth/twitter/deleter"
   },
   function(token, tokenSecret, profile, cb) {
     // Get full-sized profile photo
@@ -123,12 +123,22 @@ app.get("/deleter", (req, res) => {
         req.session.tweetsDeleted = null;
         req.session.likesDeleted = null;
 
-        res.render("deleter", { 
-            username: username, 
-            profileImgUrl: profileImgUrl, 
-            tweetSent: tweetSent, 
-            tweetsDeleted: tweetsDeleted,
-            likesDeleted: likesDeleted });
+        // Configure twit object
+        const T = twit.twitConfig(req);
+
+        // Get 15 most recent tweets
+        T.get("statuses/user_timeline",  {user_id: req.user.twitterId, count: 15 }, (err, data, response) => {
+            console.log(data[0]);
+            res.render("deleter", 
+            { 
+                username: username, 
+                profileImgUrl: profileImgUrl, 
+                tweetSent: tweetSent, 
+                tweetsDeleted: tweetsDeleted,
+                likesDeleted: likesDeleted,
+                tweets: data
+            });
+        });
     // Redirects the user to the home page if they try to access the deleter page without logging in
     } else {
         res.redirect("/");
@@ -181,6 +191,23 @@ app.post("/delete-likes", (req, res) => {
 
         res.redirect("/deleter");
     });
+});
+
+app.post("/delete-tweet", (req, res) => {
+    const T = twit.twitConfig(req);
+
+    const tweetId = req.body.tweetId;
+
+    T.post("statuses/destroy/" + tweetId, (err, data, response) => {
+        if(err) {
+            res.redirect("/deleter");
+        }
+    });
+
+    // Set session variable to display success message
+    req.session.tweetsDeleted = true;
+
+    res.redirect("/deleter");
 });
 
 app.post("/delete-tweets", (req, res) => {

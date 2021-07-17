@@ -32,51 +32,11 @@
 
     <hr>
 
-    <!-- Delete Likes -->
-    <form id="delete-like-form" action="/delete-tweets" method="POST">
-        <h1 class="form-title">Delete Tweets</h1>
-        
-        <div class="flex-row">
-            <div class="stack-input">
-                <div><label class="form-label" for="like-del-num">How many?</label>
-                    <input id="tweet-del-num" class="tweet-del-num number-input" type="number" name="tweetDelNum" min="1" max="200" value="1"/></div>
-    
-                <!-- <div class="checkbox-wrapper flex-align-center">
-                    <input class="like-del-checkbox" type="checkbox" id="like-del-max" name="likeDelMax" value="10">
-                <label class="checkbox-label form-label" for="like-del-max">Max (200)</label><br>
-                </div> -->
-            </div>
-    
-            <button class="confirm-del-btn" type="submit"><i class="fa fa-trash"></i></button>       
-        </div> 
-    </form>
+    <%- include("delete-likes.ejs"); -%>
 
-    <% if(tweetsDeleted) { %>
-        <p class="success-msg">Your tweets were deleted!</p>
-    <% } %>
+    <hr>
 
-    <!-- Delete Likes -->
-    <form id="delete-like-form" action="/delete-likes" method="POST">
-        <h1 class="form-title">Delete Likes</h1>
-        
-        <div class="flex-row">
-            <div class="stack-input">
-                <div><label class="form-label" for="like-del-num">How many?</label>
-                    <input id="like-del-num" class="like-del-num number-input" type="number" name="likeDelNum" min="1" max="200" value="1"/></div>
-    
-                <div class="checkbox-wrapper flex-align-center">
-                    <input class="like-del-checkbox" type="checkbox" id="like-del-max" name="likeDelMax" value="10">
-                <label class="checkbox-label form-label" for="like-del-max">Max (200)</label><br>
-                </div>
-            </div>
-    
-            <button class="confirm-del-btn" type="submit"><i class="fa fa-trash"></i></button>       
-        </div> 
-    </form>
-
-    <% if(likesDeleted) { %>
-        <p class="success-msg">Your likes were deleted!</p>
-    <% } %>
+    <%- include("delete-tweets.ejs"); -%>
 </div>
 
 <script src="deleter.js"></script>

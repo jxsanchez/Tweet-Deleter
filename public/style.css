@@ -161,10 +161,11 @@ hr {
 /* tweet form */
 .deleter-content-wrapper {
   background: #e1e8ed;
-  height: 100vh;
+  height: 82vh;
   margin: 0 auto;
   padding: 25px 30px;
   width: fit-content;
+  overflow-x: scroll;
 }
 
 .tweet-form {
@@ -279,6 +280,43 @@ hr {
   font-size: 1.3rem;
 }
 
+/************************* delete-tweets.ejs *************************/
+.delete-tweet-form {
+  padding: 10px 0;
+  color: #657786;
+}
+
+.delete-tweet-form .confirm-del-btn {
+  margin: 0;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.delete-tweet-form .username {
+  color: #1da1f2;
+  font-weight: bold;
+  margin: 0;
+}
+
+.del-rt-btn {
+  background: #206516;
+  color: #f5f8fa;
+  margin: 0;
+  font-size: 0.9rem;
+  padding: 10px 12px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.del-rt-btn:hover {
+  background: #16470f;
+}
+
+.retweet-icon {
+  color: #35a824;
+}
+
 /************************* footer.ejs *************************/
 footer {
   background: #f4cc31;
@@ -380,6 +418,15 @@ footer a:hover {
 
   .fa-trash {
     font-size: 1.5rem;
+  }
+
+  /* delete tweet form */
+  .delete-tweet-form {
+    padding: 10px 25px;
+  }
+
+  .recent-tweet-title {
+    margin-left: 25px;
   }
 }
 
